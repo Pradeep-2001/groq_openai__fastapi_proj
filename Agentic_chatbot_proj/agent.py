@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from langchain_groq import ChatGroq
 from langchain_tavily import TavilySearch
 from langgraph.prebuilt import create_react_agent
+from langchain_core.messages.ai import AIMessage
 
 # Load variables from .env
 load_dotenv()
@@ -24,14 +25,26 @@ agent=create_react_agent(
     tools=[search_tool],
     prompt=system_prompt
 )
-query="Tell me about the crypto trends and markets"
+query="who is the prime minister of India"
 
 
-state={"message": query}
+state = {
+    "messages": [
+        ("system", system_prompt),
+        ("user", query)
+    ]
+}
 
 response= agent.invoke(state)
 
-print(response)
+# print(response)
+
+messages= response.get("messages")
+
+
+ai_message= [message.content for message in messages if isinstance(message, AIMessage)]
+
+print(ai_message[-1])
 
 
 
