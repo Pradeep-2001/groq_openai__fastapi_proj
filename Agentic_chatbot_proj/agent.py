@@ -20,31 +20,39 @@ search_tool=TavilySearch(max_results=2)
 
 system_prompt="Act as an AI chatbot who is smart and friendly"
 
-agent=create_react_agent(
-    model= groq_llm,
-    tools=[search_tool],
-    prompt=system_prompt
-)
-query="who is the prime minister of India"
+
+def get_response_agent(llm_id, query,system_prompt, allow_search,provider):
+    if (provider=="Groq"):
+        llm= ChatGroq(model=llm_id)
+
+    tools=[TavilySearch(max_results=2)] if allow_search else []
+
+    agent=create_react_agent(
+        model= llm,
+        tools=tools,
+        prompt=system_prompt
+    )
+    query="who is the previous prime minister of India"
 
 
-state = {
-    "messages": [
-        ("system", system_prompt),
-        ("user", query)
-    ]
-}
+    state = {
+        "messages": [
+            ("system", system_prompt),
+            ("user", query)
+        ]
+    }
 
-response= agent.invoke(state)
+    response= agent.invoke(state)
 
-# print(response)
+    # print(response)
 
-messages= response.get("messages")
+    messages= response.get("messages")
 
 
-ai_message= [message.content for message in messages if isinstance(message, AIMessage)]
+    ai_message= [message.content for message in messages if isinstance(message, AIMessage)]
 
-print(ai_message[-1])
+    return ai_message[-1]
+
 
 
 
