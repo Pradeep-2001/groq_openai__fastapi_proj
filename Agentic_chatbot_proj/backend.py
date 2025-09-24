@@ -24,8 +24,8 @@ def chat_endpoint(request: RequestState):
     
     llm_id=request.model_name
     query= request.messages
-    allow_search=request.allow_search,
-    system_prompt= request.system_prompt,
+    allow_search=request.allow_search
+    system_prompt= request.system_prompt
     provider= request.model_provider
 
     response= get_response_agent(llm_id, query,system_prompt, allow_search,provider)
