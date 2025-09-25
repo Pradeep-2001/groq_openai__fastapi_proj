@@ -1,0 +1,106 @@
+/* App.css */
+
+/* Global container */
+.app-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 16px;
+  font-family: Arial, sans-serif;
+}
+
+/* Headings */
+.app-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.app-subtitle {
+  color: #4b5563; /* gray-600 */
+  margin-bottom: 16px;
+}
+
+/* Form elements */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151; /* gray-700 */
+  margin-bottom: 4px;
+}
+
+textarea,
+select {
+  width: 100%;
+  border: 1px solid #d1d5db; /* gray-300 */
+  border-radius: 6px;
+  padding: 8px;
+  font-size: 14px;
+  resize: vertical;
+}
+
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #2563eb; /* blue-500 */
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.4);
+}
+
+/* Checkbox and radio */
+input[type="checkbox"],
+input[type="radio"] {
+  margin-right: 6px;
+}
+
+/* Button */
+.submit-button {
+  width: 100%;
+  background-color: #2563eb; /* blue-600 */
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submit-button:hover {
+  background-color: #1d4ed8; /* blue-700 */
+}
+
+.submit-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Error message */
+.error-box {
+  margin-top: 16px;
+  padding: 12px;
+  background-color: #fee2e2; /* red-100 */
+  color: #b91c1c; /* red-700 */
+  border-radius: 6px;
+}
+
+/* Response box */
+.response-box {
+  margin-top: 16px;
+}
+
+.response-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.response-content {
+  margin-top: 8px;
+  padding: 12px;
+  background-color: #f3f4f6; /* gray-100 */
+  border-radius: 6px;
+}

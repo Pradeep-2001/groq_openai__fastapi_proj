@@ -17,6 +17,19 @@ ALLOWED_MODELS=["llama-3.3-70b-versatile", "llama3-70b-8192"]
 
 app= FastAPI(title="AI Agent")
 
+from fastapi.middleware.cors import CORSMiddleware
+
+app = FastAPI(title="AI Agent")
+
+# Allow frontend (React) to call the backend
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],  # frontend URL
+    allow_credentials=True,
+    allow_methods=["*"],  # allow POST, GET, OPTIONS, etc.
+    allow_headers=["*"],
+)
+
 @app.post("/chat")
 def chat_endpoint(request: RequestState):
     if request.model_name not in ALLOWED_MODELS:
