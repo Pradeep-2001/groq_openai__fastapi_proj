@@ -108,7 +108,6 @@ const App = () => {
               type="checkbox"
               checked={allowWebSearch}
               onChange={(e) => setAllowWebSearch(e.target.checked)}
-              className="form-checkbox h-4 w-4 text-blue-600"
             />
             <span className="ml-2">Allow web search</span>
           </label>

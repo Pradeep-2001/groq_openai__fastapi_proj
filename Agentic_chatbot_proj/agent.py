@@ -13,12 +13,12 @@ load_dotenv()
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 TAVILY_API_KEY= os.getenv("TAVILY_API_KEY")
 
-groq_llm=ChatGroq(model="llama-3.3-70b-versatile", api_key=GROQ_API_KEY)
+# groq_llm=ChatGroq(model="llama-3.3-70b-versatile", api_key=GROQ_API_KEY)
 
 
-search_tool=TavilySearch(max_results=2)
+# search_tool=TavilySearch(max_results=2)
 
-system_prompt="Act as an AI chatbot who is smart and friendly"
+# system_prompt="Act as an AI chatbot who is smart and friendly"
 
 
 def get_response_agent(llm_id, query,system_prompt, allow_search,provider):
@@ -32,7 +32,7 @@ def get_response_agent(llm_id, query,system_prompt, allow_search,provider):
         tools=tools,
         prompt=system_prompt
     )
-    query="who is the previous prime minister of India"
+    # query="who is the previous prime minister of India"
 
 
     state = {
